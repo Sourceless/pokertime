@@ -1,24 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+--main-color: #FE4365;
+--secondary-color: #FC9D9A;
+--tertiary-color: #F9CDAD;
+--neutral-color: #C8C8A9;
+--accent-color: #83AF9B;
+
+--text-color: #111;
+--text-color-dark: #eee;
+
+--page-color: #eee;
+}
+
 body {
-    background: #eee;
+    background: var(--page-color);
+    color: var(--text-color);
     height: 100vh;
     width: 100vw;
     padding: 0;
     margin: 0;
-    font-family: Georgia, Serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .container {
-    height: 100vh;
+    padding: 1em;
     text-align: center;
-    margin-top: 5em;
+}
+
+.header {
+    padding: 1em;
+    color: var(--text-color-dark);
+    background: var(--main-color);
+}
+
+.header h1 {
+    margin: 0;
+    margin-left: 1em;
+    display: inline-flex;
+}
+
+.username {
+    display: inline-flex;
+    float: right;
+    position: relative;
+    top: .5em;
+    margin-right: 1em;
+    font-weight: bold;
+    text-decoration: underline wavy var(--tertiary-color) 2px;
+}
+
+.title-words {
+    margin-left: .25em;
+    text-decoration: underline overline wavy var(--secondary-color) 2px;
 }
 
 .card {
-    position: relative;
     background: white;
+    position: relative;
     width: 2em;
     height: 3em;
-    border: none;
+    border: .125em solid var(--secondary-color);
     border-radius: .25em;
     filter: drop-shadow(10px 10px 10px #ccc);
     font-size: 3em;
@@ -28,8 +70,113 @@ body {
     transition: all 0.25s;
 }
 
+.card-disabled {
+    filter: grayscale(100%);
+}
+
+.card:hover {
+    top: -.1em;
+}
+
+.card-disabled:hover {
+    top: 0;
+}
+
 .card-selected {
     top: -.5em;
-    background: #ddddff;
-    filter: drop-shadow(0px 0px 10px #55f);
+    background: var(--tertiary-color);
+    filter: drop-shadow(0px 0px 10px var(--secondary-color));
+    margin-left: .5em;
+    margin-right: .2em
+}
+
+.card-selected:hover {
+    top: -.6em !important;
+}
+
+.username-form {
+    margin-top: 3em;
+    font-size: 16pt;
+}
+
+.username-input-label {
+    margin-right: 1em;
+    text-decoration: underline wavy 2px var(--accent-color);
+}
+
+.username-input-text {
+    border: .25em solid var(--accent-color);
+    font-size: 1em;
+    border-radius: .5em;
+    padding: .25em;
+}
+
+.votes {
+    display: inline-block;
+}
+
+.vote {
+    font-size: 20pt;
+    text-align: left;
+}
+
+.vote-voter {
+    margin-right: 1em;
+}
+
+.vote-name {
+    float: right;
+    font-weight: bold;
+}
+
+.ticket {
+    min-width: 60vw;
+    max-width: 960px;
+    padding: 2em;
+    margin: 0 auto;
+    margin-top: 2em;
+    border-radius: 1em;
+    background: var(--tertiary-color);
+    outline: 0.2em dashed var(--secondary-color);
+    outline-offset: -1em;
+    text-align: left
+}
+
+.ticket-missing {
+    background: #ddd;
+    color: #aaa;
+    outline-color: #bbb;
+    text-align: center;
+}
+
+.ticket-title {
+    margin: 0;
+    text-decoration: underline wavy var(--secondary-color);
+    color: var(--text-color);
+    display: inline;
+}
+
+.ticket-id {
+    float: right;
+    border-radius: 0.25em;
+    padding: 0.25em;
+    background: var(--secondary-color);
+    color: var(--text-color-dark);
+    font-weight: bold;
+    text-shadow: 1px 1px --var(main-color);
+}
+
+.ticket-description {
+    display:block;
+    margin-top: 1em;
+}
+
+.votes-container {
+    margin-top: 4em;
+}
+
+.cast-vote-result-text-conclusive {
+    font-size: 150pt;
+    padding: 0;
+    margin: 0;
 }
